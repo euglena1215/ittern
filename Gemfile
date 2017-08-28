@@ -56,6 +56,9 @@ group :development do
 
   # 環境変数をいい感じに設定できる
   gem 'dotenv-rails'
+
+  # schemaをmodelにコメントとして記述
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
