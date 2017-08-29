@@ -71,3 +71,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 初期データを入れる
 gem "seed-fu"
+
+# inum
+gem 'inum'

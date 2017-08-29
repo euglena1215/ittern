@@ -30,5 +30,8 @@ module Ittern
                        request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    # add autoload paths
+    config.autoload_paths += Dir["#{config.root}/app/enums"]
   end
 end

@@ -92,6 +92,9 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
+    inum (5.2.0)
+      activesupport
+      i18n
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -250,6 +253,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   factory_girl_rails
+  inum
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   onkcop
