@@ -60,8 +60,10 @@ group :development do
 
   # schemaをmodelにコメントとして記述
   gem "annotate"
-
+  # 静的チェック
   gem "onkcop", require: false
+  # N+1問題
+  gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
