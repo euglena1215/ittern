@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   root "companies#index"
 
   devise_for :users
