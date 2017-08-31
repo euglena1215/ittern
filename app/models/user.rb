@@ -38,4 +38,12 @@ class User < ApplicationRecord
          :trackable,
          :validatable,
          :confirmable
+
+  validate :email_cannot_be_except_academic_domain
+
+  def email_cannot_be_except_academic_domain
+    if email !~ /\A[\w\-\.]+@[a-zA-Z0-9\-\.]+\.ac\.jp\z/
+      errors.add(:email, "ac.jp以外を使用することはできません")
+    end
+  end
 end
