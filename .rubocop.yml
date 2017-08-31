@@ -10,3 +10,16 @@ AllCops:
   TargetRubyVersion: 2.4
   # uncomment if use rails cops
   TargetRailsVersion: 5.1
+
+# onkcopに `config/environments/*.rb` を追加
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+    - "config/environments/*.rb"

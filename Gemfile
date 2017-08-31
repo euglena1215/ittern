@@ -63,10 +63,10 @@ group :development do
   # 静的チェック
   gem "onkcop", require: false
   # N+1問題
-  gem 'bullet'
+  gem "bullet"
 
   # ER図を自動生成
-  gem 'rails-erd'
+  gem "rails-erd"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -76,4 +76,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "seed-fu"
 
 # inum
-gem 'inum'
+gem "inum"

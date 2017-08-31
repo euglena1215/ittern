@@ -27,7 +27,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      redirect_to @company, notice: 'Company was successfully created.'
+      redirect_to @company, notice: "Company was successfully created."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1.json
   def update
     if @company.update(company_params)
-      redirect_to @company, notice: 'Company was successfully updated.'
+      redirect_to @company, notice: "Company was successfully updated."
     else
       render :edit
     end
@@ -46,11 +46,12 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
-    @company.destroy
-    redirect_to companies_url, notice: 'Company was successfully destroyed.'
+    @company.destroy!
+    redirect_to companies_url, notice: "Company was successfully destroyed."
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_company
       @company = Company.find(params[:id])

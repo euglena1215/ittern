@@ -16,5 +16,5 @@ class Company < ApplicationRecord
 
   validates :url,
             allow_blank: true,
-            format: /\A#{URI::regexp(%w(http https))}\z/
+            format: /\A#{URI.regexp(%w[http https])}\z/
 end

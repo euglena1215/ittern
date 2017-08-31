@@ -1,4 +1,4 @@
-companies_name = %w(
+companies_name = %w[
   CyderAgent
   FeNA
   KINE
@@ -7,7 +7,7 @@ companies_name = %w(
   gogle
   hardbank
   Bteam
-)
+]
 
 companies_name.each.with_index(1) do |company_name, idx|
   Company.seed do |c|
