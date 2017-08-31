@@ -31,56 +31,67 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  context "カスタムバリデーションメソッド" do
-    describe "#email_cannot_be_except_academic_domain" do
-      let(:user) { build(:user, :no_email) }
-      subject do
-        user.email = email
-        user.email_cannot_be_except_academic_domain
-        user.errors.empty?
-      end
+  describe "#email_cannot_be_except_academic_domain" do
+    subject do
+      user.email = email
+      user.email_cannot_be_except_academic_domain
+      user.errors.empty?
+    end
 
-      describe "正常系" do
-        context "hoge@example.ac.jp" do
-          let(:email) { "hoge@example.ac.jp" }
-          it { is_expected.to eq true }
-        end
-        context "hoge@example.example.ac.jp" do
-          let(:email) { "hoge@example.example.ac.jp" }
-          it { is_expected.to eq true }
-        end
-        context "hoge.hoge@example.ac.jp" do
-          let(:email) { "hoge.hoge@example.ac.jp" }
-          it { is_expected.to eq true }
-        end
-      end
+    let(:user) { build(:user, :no_email) }
 
-      context "異常系" do
-        context "@example.ac.jp" do
-          let(:email) { "@example.ac.jp" }
-          it { is_expected.to eq false }
-        end
-        context "hoge@ac.jp" do
-          let(:email) { "hoge@ac.jp" }
-          it { is_expected.to eq false }
-        end
-        context "hoge@example.ac-jp" do
-          let(:email) { "hoge@example.ac-jp" }
-          it { is_expected.to eq false }
-        end
-        context "hoge@example-ac.jp" do
-          let(:email) { "hoge@example-ac.jp" }
-          it { is_expected.to eq false }
-        end
-        context "hoge@example.com" do
-          let(:email) { "hoge@example.com" }
-          it { is_expected.to eq false }
-        end
-        context "hoge+_|^.,/;*[-=:;]!?#$%&(){}<>`'@example.ac.jp" do
-          let(:email) { "hoge+_|^.,/;*[-=:;]!?#$%&(){}<>`'@example.ac.jp" }
-          it { is_expected.to eq false }
-        end
-      end
+    context "hoge@example.ac.jp" do
+      let(:email) { "hoge@example.ac.jp" }
+
+      it { is_expected.to eq true }
+    end
+
+    context "hoge@example.example.ac.jp" do
+      let(:email) { "hoge@example.example.ac.jp" }
+
+      it { is_expected.to eq true }
+    end
+
+    context "hoge.hoge@example.ac.jp" do
+      let(:email) { "hoge.hoge@example.ac.jp" }
+
+      it { is_expected.to eq true }
+    end
+
+    context "@example.ac.jp" do
+      let(:email) { "@example.ac.jp" }
+
+      it { is_expected.to eq false }
+    end
+
+    context "hoge@ac.jp" do
+      let(:email) { "hoge@ac.jp" }
+
+      it { is_expected.to eq false }
+    end
+
+    context "hoge@example.ac-jp" do
+      let(:email) { "hoge@example.ac-jp" }
+
+      it { is_expected.to eq false }
+    end
+
+    context "hoge@example-ac.jp" do
+      let(:email) { "hoge@example-ac.jp" }
+
+      it { is_expected.to eq false }
+    end
+
+    context "hoge@example.com" do
+      let(:email) { "hoge@example.com" }
+
+      it { is_expected.to eq false }
+    end
+
+    context "hoge+_|^.,/;*[-=:;]!?#$%&(){}<>`'@example.ac.jp" do
+      let(:email) { "hoge+_|^.,/;*[-=:;]!?#$%&(){}<>`'@example.ac.jp" }
+
+      it { is_expected.to eq false }
     end
   end
 end
