@@ -1,4 +1,4 @@
-for i in 1..10
+(1..10).each do |i|
   User.seed do |u|
     u.id = i
     u.name = "ユーザー#{i}"
@@ -7,6 +7,6 @@ for i in 1..10
     u.password_confirmation = "password"
 
     # comfirmをスキップする
-    u.confirmed_at = Time.now
+    u.confirmed_at = Time.zone.now
   end
 end
