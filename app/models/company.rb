@@ -12,4 +12,9 @@
 #
 
 class Company < ApplicationRecord
+  validates :name, presence: true
+
+  validates :url,
+            allow_blank: true,
+            format: /\A#{URI::regexp(%w(http https))}\z/
 end
