@@ -66,7 +66,7 @@ group :development do
   gem 'bullet'
 
   # ER図を自動生成
-  gem 'rails-erd', require: false
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
