@@ -1,5 +1,19 @@
 # README
 
+## セットアップ
+* Graphvizをインストールする(rails-erdで利用)
+`brew install graphviz`
+https://voormedia.github.io/rails-erd/install.html
+
+* 各種コマンドを実行
+`bundle install --path vendor/bundle`
+`bundle exec rake db:create`
+`bundle exec rake db:migrate`
+`bundle exec rake db:seed_fu`
+
+* .envファイルをコピーして諸々設定する
+`cp .env.sample .env`
+
 ### アプリケーションから送信されたメールを確認する方法
 `/letter_opener` にアクセスする
 
