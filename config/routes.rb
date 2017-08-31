@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
 
   resources :companies
+  resources :users, except: [:new, :create]
 end
