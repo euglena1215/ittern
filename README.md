@@ -1,5 +1,10 @@
 # README
 
+### アプリケーションから送信されたメールを確認する方法
+`/letter_opener` にアクセスする
+
+---
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
