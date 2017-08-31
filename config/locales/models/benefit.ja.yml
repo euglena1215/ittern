@@ -1,0 +1,11 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      benefit:
+        review: 体験談
+        transportation: 交通費
+        accommodation: 宿泊場所
+        wage: 日給
+        lunch: ランチ

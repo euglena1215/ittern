@@ -4,7 +4,7 @@ class BenefitsController < ApplicationController
   # GET /benefits
   # GET /benefits.json
   def index
-    @benefits = Benefit.all
+    @benefits = Benefit.all.includes(:review)
   end
 
   # GET /benefits/1
@@ -26,42 +26,32 @@ class BenefitsController < ApplicationController
   def create
     @benefit = Benefit.new(benefit_params)
 
-    respond_to do |format|
-      if @benefit.save
-        format.html { redirect_to @benefit, notice: 'Benefit was successfully created.' }
-        format.json { render :show, status: :created, location: @benefit }
-      else
-        format.html { render :new }
-        format.json { render json: @benefit.errors, status: :unprocessable_entity }
-      end
+    if @benefit.save
+      redirect_to @benefit, notice: 'Benefit was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /benefits/1
   # PATCH/PUT /benefits/1.json
   def update
-    respond_to do |format|
-      if @benefit.update(benefit_params)
-        format.html { redirect_to @benefit, notice: 'Benefit was successfully updated.' }
-        format.json { render :show, status: :ok, location: @benefit }
-      else
-        format.html { render :edit }
-        format.json { render json: @benefit.errors, status: :unprocessable_entity }
-      end
+    if @benefit.update(benefit_params)
+      redirect_to @benefit, notice: 'Benefit was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /benefits/1
   # DELETE /benefits/1.json
   def destroy
-    @benefit.destroy
-    respond_to do |format|
-      format.html { redirect_to benefits_url, notice: 'Benefit was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @benefit.destroy!
+    redirect_to benefits_url, notice: 'Benefit was successfully destroyed.'
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_benefit
       @benefit = Benefit.find(params[:id])
