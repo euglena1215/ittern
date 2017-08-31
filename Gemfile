@@ -77,3 +77,6 @@ gem "seed-fu"
 
 # inum
 gem "inum"
+
+# ログイン周り
+gem "devise"
