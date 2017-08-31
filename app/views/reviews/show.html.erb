@@ -26,3 +26,12 @@
 </p>
 
 <%= link_to '編集', edit_review_path(@review) %>
+
+<hr>
+<h2>コメント</h2>
+<% @comments.each do |comment| %>
+<pre>
+  <%= comment.content %>
+  <%= comment.user.name %>
+</pre>
+<% end %>
