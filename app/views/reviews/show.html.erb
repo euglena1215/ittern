@@ -2,12 +2,12 @@
 
 <p>
   <strong><%= Review.human_attribute_name('content') %>:</strong>
-  <%= @review.content %>
+  <%= simple_format(@review.content) if @review.content %>
 </p>
 
 <p>
   <strong><%= Review.human_attribute_name('user') %>:</strong>
-  <%= @review.user %>
+  <%= link_to @review.user.name, user_path(@review.user) %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong><%= Review.human_attribute_name('company') %>:</strong>
-  <%= @review.company %>
+  <%= link_to @review.company.name, company_path(@review.company) %>
 </p>
 
 <p>

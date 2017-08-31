@@ -17,7 +17,7 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
-        <td><%= review.content %></td>
+        <td><%= truncate(review.content, length: 30) if review.content %></td>
         <td><%= review.user.name %></td>
         <td><%= review.url %></td>
         <td><%= review.company.name %></td>

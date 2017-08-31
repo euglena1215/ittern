@@ -39,6 +39,8 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
+  has_many :reviews
+
   validate :email_cannot_be_except_academic_domain
 
   def email_cannot_be_except_academic_domain
