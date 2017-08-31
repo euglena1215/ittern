@@ -1,24 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Company.human_attribute_name('name') %>:</strong>
   <%= @company.name %>
 </p>
 
 <p>
-  <strong>Url:</strong>
+  <strong><%= Company.human_attribute_name('url') %>:</strong>
   <%= @company.url %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong><%= Company.human_attribute_name('address') %>:</strong>
   <%= @company.address %>
 </p>
 
 <p>
-  <strong>Logo:</strong>
+  <strong><%= Company.human_attribute_name('logo') %>:</strong>
   <%= @company.logo %>
 </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= link_to '編集', edit_company_path(@company) %> |

@@ -1,0 +1,14 @@
+<% if object.errors.any? %>
+  <div id="error_explanation" class="panel panel-danger">
+    <div class="panel-heading">
+      <h2 class="panel-title">エラーがあります。</h2>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
