@@ -30,5 +30,13 @@
 
 FactoryGirl.define do
   factory :user do
+    sequence(:name) { |i| "user#{i}" }
+    sequence(:email) { |i| "user#{i}@example.ac.jp" }
+    password "password"
+    password_confirmation "password"
+  end
+
+  trait :no_email do
+    email nil
   end
 end
