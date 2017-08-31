@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @benefit.review %>
+</p>
+
+<p>
+  <strong>Transportation:</strong>
+  <%= @benefit.transportation %>
+</p>
+
+<p>
+  <strong>Accommodation:</strong>
+  <%= @benefit.accommodation %>
+</p>
+
+<p>
+  <strong>Wage:</strong>
+  <%= @benefit.wage %>
+</p>
+
+<p>
+  <strong>Lunch:</strong>
+  <%= @benefit.lunch %>
+</p>
+
+<%= link_to 'Edit', edit_benefit_path(@benefit) %> |
+<%= link_to 'Back', benefits_path %>

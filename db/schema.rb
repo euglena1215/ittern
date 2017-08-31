@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831133022) do
+ActiveRecord::Schema.define(version: 20170831144735) do
+
+  create_table "benefits", force: :cascade do |t|
+    t.integer "review_id"
+    t.boolean "transportation", default: false, null: false
+    t.boolean "accommodation", default: false, null: false
+    t.integer "wage", default: 0, null: false
+    t.boolean "lunch", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_benefits_on_review_id", unique: true
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Benefits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Review</th>
+      <th>Transportation</th>
+      <th>Accommodation</th>
+      <th>Wage</th>
+      <th>Lunch</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @benefits.each do |benefit| %>
+      <tr>
+        <td><%= benefit.review %></td>
+        <td><%= benefit.transportation %></td>
+        <td><%= benefit.accommodation %></td>
+        <td><%= benefit.wage %></td>
+        <td><%= benefit.lunch %></td>
+        <td><%= link_to 'Show', benefit %></td>
+        <td><%= link_to 'Edit', edit_benefit_path(benefit) %></td>
+        <td><%= link_to 'Destroy', benefit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Benefit', new_benefit_path %>
