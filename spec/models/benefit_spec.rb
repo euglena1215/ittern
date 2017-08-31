@@ -16,7 +16,7 @@
 #  index_benefits_on_review_id  (review_id) UNIQUE
 #
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Benefit, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"

@@ -27,7 +27,7 @@ class BenefitsController < ApplicationController
     @benefit = Benefit.new(benefit_params)
 
     if @benefit.save
-      redirect_to @benefit, notice: 'Benefit was successfully created.'
+      redirect_to @benefit, notice: "Benefit was successfully created."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BenefitsController < ApplicationController
   # PATCH/PUT /benefits/1.json
   def update
     if @benefit.update(benefit_params)
-      redirect_to @benefit, notice: 'Benefit was successfully updated.'
+      redirect_to @benefit, notice: "Benefit was successfully updated."
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class BenefitsController < ApplicationController
   # DELETE /benefits/1.json
   def destroy
     @benefit.destroy!
-    redirect_to benefits_url, notice: 'Benefit was successfully destroyed.'
+    redirect_to benefits_url, notice: "Benefit was successfully destroyed."
   end
 
   private
