@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= Review.human_attribute_name('content') %>:</strong>
   <%= @review.content %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= Review.human_attribute_name('user') %>:</strong>
   <%= @review.user %>
 </p>
 
 <p>
-  <strong>Url:</strong>
+  <strong><%= Review.human_attribute_name('url') %>:</strong>
   <%= @review.url %>
 </p>
 
 <p>
-  <strong>Company:</strong>
+  <strong><%= Review.human_attribute_name('company') %>:</strong>
   <%= @review.company %>
 </p>
 
 <p>
-  <strong>Rate:</strong>
+  <strong><%= Review.human_attribute_name('rate') %>:</strong>
   <%= @review.rate %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to '編集', edit_review_path(@review) %>
