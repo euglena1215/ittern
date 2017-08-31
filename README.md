@@ -3,6 +3,7 @@
 ## セットアップ
 * Graphvizをインストールする(rails-erdで利用)
 `brew install graphviz`
+https://voormedia.github.io/rails-erd/install.html
 
 * 各種コマンドを実行
 `bundle install --path vendor/bundle`
