@@ -1,15 +1,5 @@
 <%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/errors", object: comment %>
 
   <div class="field">
     <%= form.label :content %>
@@ -18,12 +8,12 @@
 
   <div class="field">
     <%= form.label :review_id %>
-    <%= form.text_field :review_id, id: :comment_review_id %>
+    <%= form.collection_select :review_id, Review.all, :id, :content, id: :comment_review_id %>
   </div>
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :comment_user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :name, id: :comment_user_id %>
   </div>
 
   <div class="actions">

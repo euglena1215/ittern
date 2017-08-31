@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Comments</h1>
+<h1>コメント一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Content</th>
-      <th>Review</th>
-      <th>User</th>
+      <th><%= Comment.human_attribute_name('content') %></th>
+      <th><%= Comment.human_attribute_name('review') %></th>
+      <th><%= Comment.human_attribute_name('user') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +16,11 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
-        <td><%= comment.review %></td>
-        <td><%= comment.user %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= comment.review.content %></td>
+        <td><%= comment.user.name %></td>
+        <td><%= link_to '詳細', comment %></td>
+        <td><%= link_to '編集', edit_comment_path(comment) %></td>
+        <td><%= link_to '削除', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to '新規コメント作成', new_comment_path %>

@@ -40,6 +40,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :reviews
+  has_many :comments
 
   validate :email_cannot_be_except_academic_domain
 

@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= Comment.human_attribute_name('content') %>:</strong>
   <%= @comment.content %>
 </p>
 
 <p>
-  <strong>Review:</strong>
-  <%= @comment.review %>
+  <strong><%= Comment.human_attribute_name('review') %>:</strong>
+  <%= @comment.review.content %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @comment.user %>
+  <strong><%= Comment.human_attribute_name('user') %>:</strong>
+  <%= @comment.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to '編集', edit_comment_path(@comment) %> |
