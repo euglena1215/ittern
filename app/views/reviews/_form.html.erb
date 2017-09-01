@@ -21,6 +21,11 @@
     <%= form.select :rate, (1..5).to_a, id: :review_rate %>
   </div>
 
+  <div class="field">
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list, id: :review_tag_list %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

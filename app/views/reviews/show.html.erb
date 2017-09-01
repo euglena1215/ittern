@@ -25,4 +25,9 @@
   <%= @review.rate %>
 </p>
 
+<p>
+  <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
+  <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
+</p>
+
 <%= link_to '編集', edit_review_path(@review) %>
