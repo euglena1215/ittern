@@ -84,3 +84,6 @@ gem "inum"
 
 # ログイン周り
 gem "devise"
+
+# タグ機能
+gem "acts-as-taggable-on"

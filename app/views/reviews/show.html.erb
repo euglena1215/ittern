@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
+  <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
+</p>
+
+<p>
   <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
   <%= @benefit.transportation %>
 </p>
