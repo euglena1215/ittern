@@ -9,6 +9,7 @@
       <th><%= Company.human_attribute_name('url') %></th>
       <th><%= Company.human_attribute_name('address') %></th>
       <th><%= Company.human_attribute_name('logo') %></th>
+      <th><%= Company.human_attribute_name('tag_list') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= company.url %></td>
         <td><%= company.address %></td>
         <td><%= company.logo %></td>
+        <td><%= company.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %></td>
         <td><%= link_to '詳細', company %></td>
         <td><%= link_to '編集', edit_company_path(company) %></td>
         <td><%= link_to '削除', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>

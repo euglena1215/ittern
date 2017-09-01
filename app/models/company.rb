@@ -12,6 +12,8 @@
 #
 
 class Company < ApplicationRecord
+  acts_as_taggable
+
   has_many :reviews
 
   validates :name, presence: true
