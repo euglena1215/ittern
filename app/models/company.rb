@@ -12,6 +12,8 @@
 #
 
 class Company < ApplicationRecord
+  mount_uploader :logo, CompanyLogoUploader
+
   validates :name, presence: true
 
   validates :url,
