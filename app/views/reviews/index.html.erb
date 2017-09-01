@@ -11,6 +11,16 @@
 
   <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
 
+  <%= f.select :benefit_transportation_eq, [true, false], include_blank: Benefit.human_attribute_name('transportation') %>
+
+  <%= f.select :benefit_accommodation_eq, [true, false], include_blank: Benefit.human_attribute_name('accommodation') %>
+
+  <%= f.search_field :benefit_wage_gteq, placeholder: Benefit.human_attribute_name('wage') %>
+  〜
+  <%= f.search_field :benefit_wage_lteq, placeholder: Benefit.human_attribute_name('wage') %>
+
+  <%= f.select :benefit_lunch_eq, [true, false], include_blank: Benefit.human_attribute_name('lunch') %>
+
   <%= f.submit %>
 <% end %>
 
