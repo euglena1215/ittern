@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<%= search_form_for @search do |f| %>
+  <%= f.search_field :content_cont, placeholder: Review.human_attribute_name('content') %>
+
+  <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: Review.human_attribute_name('user') %>
+
+  <%= f.select :company_id_eq, options_from_collection_for_select(Company.all, :id, :name), include_blank: Review.human_attribute_name('company') %>
+
+  <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
+
+  <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
+
+  <%= f.submit %>
+<% end %>
+
 <h1>体験談一覧</h1>
 
 <table>
