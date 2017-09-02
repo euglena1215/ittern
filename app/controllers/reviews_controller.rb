@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all.includes(:company, :user)
+    @search = Review.ransack(params[:q])
+    @reviews = @search.result.includes(:company, :user)
   end
 
   # GET /reviews/1
