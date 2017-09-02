@@ -1,0 +1,27 @@
+<%= form_with(model: review, local: true) do |form| %>
+  <%= render "shared/errors", object: review %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :review_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url, id: :review_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.collection_select :company_id, Company.all, :id, :name, id: :review_company_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.select :rate, (1..5).to_a, id: :review_rate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

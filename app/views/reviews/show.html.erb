@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= Review.human_attribute_name('content') %>:</strong>
+  <%= simple_format(@review.content) if @review.content %>
+</p>
+
+<p>
+  <strong><%= Review.human_attribute_name('user') %>:</strong>
+  <%= link_to @review.user.name, user_path(@review.user) %>
+</p>
+
+<p>
+  <strong><%= Review.human_attribute_name('url') %>:</strong>
+  <%= @review.url %>
+</p>
+
+<p>
+  <strong><%= Review.human_attribute_name('company') %>:</strong>
+  <%= link_to @review.company.name, company_path(@review.company) %>
+</p>
+
+<p>
+  <strong><%= Review.human_attribute_name('rate') %>:</strong>
+  <%= @review.rate %>
+</p>
+
+<%= link_to '編集', edit_review_path(@review) %>
