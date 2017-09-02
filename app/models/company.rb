@@ -14,6 +14,8 @@
 class Company < ApplicationRecord
   acts_as_taggable
 
+  mount_uploader :logo, CompanyLogoUploader
+
   has_many :reviews
 
   validates :name, presence: true

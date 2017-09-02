@@ -17,7 +17,7 @@
 
 <p>
   <strong><%= Company.human_attribute_name('logo') %>:</strong>
-  <%= @company.logo %>
+  <%= image_tag @company.logo_url(:thumb) %>
 </p>
 
 <p>

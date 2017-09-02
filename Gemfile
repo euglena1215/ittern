@@ -82,6 +82,10 @@ gem "seed-fu"
 # inum
 gem "inum"
 
+# 画像アップロード
+gem "carrierwave"
+gem "rmagick", require: "RMagick"
+
 # ログイン周り
 gem "devise"
 
