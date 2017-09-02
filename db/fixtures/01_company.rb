@@ -27,7 +27,7 @@ companies_name.each.with_index(1) do |company_name, idx|
     c.name = company_name
     c.url = rand(2).odd? ? "http://hogehoge.com" : nil
     c.address = rand(2).odd? ? "茨城県つくば市天王台１丁目１−１" : nil
-    c.logo = rand(2).odd? ? "hogehoge.png" : nil
+    c.logo = File.open(Rails.root.join("db", "fixtures", "images", "company_logo", "#{company_name}.png"))
     c.tag_list = tags.sample(rand(5)).join(",")
   end
 end

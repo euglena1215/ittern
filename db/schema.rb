@@ -12,6 +12,27 @@
 
 ActiveRecord::Schema.define(version: 20170901011825) do
 
+  create_table "benefits", force: :cascade do |t|
+    t.integer "review_id"
+    t.boolean "transportation", default: false, null: false
+    t.boolean "accommodation", default: false, null: false
+    t.integer "wage", default: 0, null: false
+    t.boolean "lunch", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_benefits_on_review_id", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content", null: false
+    t.integer "review_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
     t.string "url"
