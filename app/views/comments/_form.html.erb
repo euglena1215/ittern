@@ -1,0 +1,17 @@
+<%= form_with(model: comment, local: true) do |form| %>
+  <%= render "shared/errors", object: comment %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :comment_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :review_id %>
+    <%= form.collection_select :review_id, Review.all, :id, :content, id: :comment_review_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

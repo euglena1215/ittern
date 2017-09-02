@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    @comments = @review.comments.includes(:user)
   end
 
   # GET /reviews/new
