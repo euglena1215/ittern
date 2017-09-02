@@ -14,6 +14,9 @@ https://voormedia.github.io/rails-erd/install.html
 * .envファイルをコピーして諸々設定する
 `cp .env.sample .env`
 
+### アプリケーションから送信されたメールを確認する方法
+`/letter_opener` にアクセスする
+
 ---
 
 This README would normally document whatever steps are necessary to get the

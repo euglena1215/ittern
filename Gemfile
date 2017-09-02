@@ -67,6 +67,10 @@ group :development do
 
   # ER図を自動生成
   gem "rails-erd"
+
+  # localで送信されたメールを確認できる
+  gem "letter_opener"
+  gem "letter_opener_web"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -77,3 +81,6 @@ gem "seed-fu"
 
 # inum
 gem "inum"
+
+# ログイン周り
+gem "devise"
