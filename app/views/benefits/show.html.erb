@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= Benefit.human_attribute_name('review') %>:</strong>
+  <%= @benefit.review.content %>
+</p>
+
+<p>
+  <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
+  <%= @benefit.transportation %>
+</p>
+
+<p>
+  <strong><%= Benefit.human_attribute_name('accommodation') %>:</strong>
+  <%= @benefit.accommodation %>
+</p>
+
+<p>
+  <strong><%= Benefit.human_attribute_name('wage') %>:</strong>
+  <%= @benefit.wage %>
+</p>
+
+<p>
+  <strong><%= Benefit.human_attribute_name('lunch') %>:</strong>
+  <%= @benefit.lunch %>
+</p>
+
+<%= link_to '編集', edit_benefit_path(@benefit) %> |

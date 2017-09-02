@@ -1,0 +1,32 @@
+<%= form_with(model: benefit, local: true) do |form| %>
+  <%= render "shared/errors", object: benefit %>
+
+  <div class="field">
+    <%= form.label :review_id %>
+    <%= form.collection_select :review_id, Review.all, :id, :content, id: :benefit_review_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transportation %>
+    <%= form.check_box :transportation, id: :benefit_transportation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accommodation %>
+    <%= form.check_box :accommodation, id: :benefit_accommodation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wage %>
+    <%= form.number_field :wage, id: :benefit_wage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lunch %>
+    <%= form.check_box :lunch, id: :benefit_lunch %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

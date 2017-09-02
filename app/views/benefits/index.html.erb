@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>福利厚生情報一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Benefit.human_attribute_name('review') %></th>
+      <th><%= Benefit.human_attribute_name('transportation') %></th>
+      <th><%= Benefit.human_attribute_name('accommodation') %></th>
+      <th><%= Benefit.human_attribute_name('wage') %></th>
+      <th><%= Benefit.human_attribute_name('lunch') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @benefits.each do |benefit| %>
+      <tr>
+        <td><%= benefit.review.content %></td>
+        <td><%= benefit.transportation %></td>
+        <td><%= benefit.accommodation %></td>
+        <td><%= benefit.wage %></td>
+        <td><%= benefit.lunch %></td>
+        <td><%= link_to '詳細', benefit %></td>
+        <td><%= link_to '編集', edit_benefit_path(benefit) %></td>
+        <td><%= link_to '削除', benefit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規福利厚生情報を作成', new_benefit_path %>

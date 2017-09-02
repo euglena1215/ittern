@@ -20,6 +20,9 @@
 class Review < ApplicationRecord
   acts_as_taggable
 
+  has_many :comments
+  has_one :benefit
+
   belongs_to :user
   belongs_to :company
 
