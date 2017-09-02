@@ -19,6 +19,7 @@
 
 class Review < ApplicationRecord
   has_many :comments
+  has_one :benefit
 
   belongs_to :user
   belongs_to :company

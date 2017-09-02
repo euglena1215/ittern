@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :reviews
   root "companies#index"
 
   devise_for :users
@@ -10,4 +8,7 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :users, except: [:new, :create]
+  resources :reviews
+  resources :comments
+  resources :benefits
 end
