@@ -1,0 +1,9 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      comment:
+        content: コメント
+        review: 体験談
+        user: 投稿者

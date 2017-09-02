@@ -5,6 +5,7 @@ ja:
     attributes:
       company:
         name: 企業名
-        url: URL
+        url: トップページ
         address: 住所
         logo: ロゴ
+        tag_list: タグ

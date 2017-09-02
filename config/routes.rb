@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   root "companies#index"
 
+  devise_for :users
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   resources :companies
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, except: [:new, :create]
+  resources :reviews
+  resources :comments
+  resources :benefits
 end

@@ -1,0 +1,12 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  activerecord:
+    attributes:
+      review:
+        content: 体験談
+        user: 投稿者
+        url: インターン内容説明ページ
+        company: 企業
+        rate: 星
+        tag_list: タグ

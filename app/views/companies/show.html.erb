@@ -20,4 +20,9 @@
   <%= image_tag @company.logo_url(:thumb) %>
 </p>
 
+<p>
+  <strong><%= Company.human_attribute_name('tag_list') %>:</strong>
+  <%= @company.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
+</p>
+
 <%= link_to '編集', edit_company_path(@company) %> |
