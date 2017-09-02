@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all.includes(:company, :user)
+    @reviews = Review.all.includes(:company, :user, :tags)
   end
 
   # GET /reviews/1
