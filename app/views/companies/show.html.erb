@@ -23,4 +23,4 @@
   <%= @company.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
 </p>
 
-<%= link_to '編集', edit_company_path(@company) %> |
+<%= link_to '編集', edit_company_path(@company) %> | <%= link_to '削除', @company, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,31 +1,21 @@
-<h1>企業情報一覧</h1>
+<div class="container">
+  <h1>企業情報一覧</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= Company.human_attribute_name('name') %></th>
-      <th><%= Company.human_attribute_name('url') %></th>
-      <th><%= Company.human_attribute_name('address') %></th>
-      <th><%= Company.human_attribute_name('tag_list') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= company.url %></td>
-        <td><%= company.address %></td>
-        <td><%= company.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %></td>
-        <td><%= link_to '詳細', company %></td>
-        <td><%= link_to '編集', edit_company_path(company) %></td>
-        <td><%= link_to '削除', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col s12 m6 l4">
+      <a href="<%= company_path company %>" style="color:#039be5;">
+        <div class="card">
+          <div class="card-image" style="background:url(<%= company.logo_url %>) no-repeat center center; background-size:contain; height:150px;">
+          </div>
+          <div class="card-content">
+            <span class="card-title"><%= company.name %></span>
+          </div>
+        </div>
+      </a>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to '企業情報を新規作成', new_company_path %>
+  <%= link_to '企業情報を新規作成', new_company_path %>
+</div>
