@@ -24,3 +24,5 @@
 .byebug_history
 
 public/uploads/
+public/assets/application-*.js*
+public/assets/application-*.css*

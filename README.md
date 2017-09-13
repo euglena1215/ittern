@@ -10,6 +10,7 @@ https://voormedia.github.io/rails-erd/install.html
 `bundle exec rake db:create`
 `bundle exec rake db:migrate`
 `bundle exec rake db:seed_fu`
+`bundle exec rake assets:precompile assets:clean`
 
 * .envファイルをコピーして諸々設定する
 `cp .env.sample .env`

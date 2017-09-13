@@ -22,8 +22,22 @@
       </nav>
     </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <% if notice %>
+      <div class="card blue darken-1">
+        <div class="card-content white-text">
+          <p><%= notice %></p>
+        </div>
+      </div>
+      <% end %>
+      <% if alert %>
+      <div class="card red darken-1">
+        <div class="card-content white-text">
+          <p><%= alert %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
 
     <%= yield %>
   </body>
