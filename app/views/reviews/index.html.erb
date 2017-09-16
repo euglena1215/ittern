@@ -1,7 +1,10 @@
 <div class="container">
   <ul class="collapsible" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header">検索</div>
+      <div class="collapsible-header">
+        <i class="material-icons">search</i>
+        検索
+      </div>
       <div class="collapsible-body">
         <%= search_form_for @search do |f| %>
         <%= f.search_field :content_cont, placeholder: Review.human_attribute_name('content') %>
@@ -14,13 +17,27 @@
 
         <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
 
-        <%= f.select :benefit_transportation_eq, [true, false], include_blank: Benefit.human_attribute_name('transportation') %>
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.select :benefit_transportation_eq, [true, false], include_blank: Benefit.human_attribute_name('transportation') %>
+          </div>
 
-        <%= f.select :benefit_accommodation_eq, [true, false], include_blank: Benefit.human_attribute_name('accommodation') %>
+          <div class="input-field col s6">
+            <%= f.select :benefit_accommodation_eq, [true, false], include_blank: Benefit.human_attribute_name('accommodation') %>
+          </div>
+        </div>
 
-        <%= f.search_field :benefit_wage_gteq, placeholder: Benefit.human_attribute_name('wage') %>
-        〜
-        <%= f.search_field :benefit_wage_lteq, placeholder: Benefit.human_attribute_name('wage') %>
+        <div class="row">
+          <div class="col s5">
+            <%= f.search_field :benefit_wage_gteq, placeholder: Benefit.human_attribute_name('wage') %>
+          </div>
+          <div class="col s2 center-align">
+            〜
+          </div>
+          <div class="col s5">
+            <%= f.search_field :benefit_wage_lteq, placeholder: Benefit.human_attribute_name('wage') %>
+          </div>
+        </div>
 
         <%= f.select :benefit_lunch_eq, [true, false], include_blank: Benefit.human_attribute_name('lunch') %>
 
@@ -51,3 +68,10 @@
 
   <%= link_to '新規体験談を作成', new_review_path %>
 </div>
+
+<script>
+$("document").ready(function() {
+  $(".collapsible").collapsible();
+  $('select').material_select();
+});
+</script>
