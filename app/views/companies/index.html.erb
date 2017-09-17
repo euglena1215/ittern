@@ -1,5 +1,6 @@
 <div class="container">
   <h1>企業情報一覧</h1>
+  <%= link_to '企業情報を新規作成', new_company_path, class: "btn" %>
 
   <div class="row">
     <% @companies.each do |company| %>
@@ -16,6 +17,4 @@
     </div>
     <% end %>
   </div>
-
-  <%= link_to '企業情報を新規作成', new_company_path %>
 </div>
