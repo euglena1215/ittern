@@ -78,6 +78,7 @@
   </ul>
 
   <h1>体験談一覧</h1>
+  <%= link_to '新規体験談を作成', new_review_path, class: "btn" %>
 
   <div class="row">
     <% @reviews.each do |review| %>
@@ -95,8 +96,6 @@
     </div>
     <% end %>
   </div>
-
-  <%= link_to '新規体験談を作成', new_review_path %>
 </div>
 
 <script>
