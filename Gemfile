@@ -94,3 +94,6 @@ gem "acts-as-taggable-on"
 
 # 検索機能
 gem "ransack"
+
+# Active Job
+gem 'sidekiq'

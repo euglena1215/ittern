@@ -36,5 +36,7 @@ module Ittern
 
     # add autoload paths
     config.autoload_paths += Dir["#{config.root}/app/enums"]
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
