@@ -7,39 +7,69 @@
       </div>
       <div class="collapsible-body">
         <%= search_form_for @search do |f| %>
+        <div class="input-field">
         <%= f.search_field :content_cont, placeholder: Review.human_attribute_name('content') %>
+        <%= f.label :content_cont %>
+        </div>
 
+        <div class="input-field">
         <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: Review.human_attribute_name('user') %>
+        <%= f.label :user_id_eq %>
+        </div>
 
+        <div class="input-field">
         <%= f.select :company_id_eq, options_from_collection_for_select(Company.all, :id, :name), include_blank: Review.human_attribute_name('company') %>
+        <%= f.label :company_id_eq %>
+        </div>
 
+        <div class="input-field">
         <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
+        <%= f.label :rate_eq %>
+        </div>
 
+        <div class="input-field">
         <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
+        <%= f.label :tags_id_eq %>
+        </div>
 
         <div class="row">
           <div class="input-field col s6">
+            <div class="input-field">
             <%= f.select :benefit_transportation_eq, [true, false], include_blank: Benefit.human_attribute_name('transportation') %>
+            <%= f.label :benefit_transportation_eq %>
+            </div>
           </div>
 
           <div class="input-field col s6">
+            <div class="input-field">
             <%= f.select :benefit_accommodation_eq, [true, false], include_blank: Benefit.human_attribute_name('accommodation') %>
+            <%= f.label :benefit_accommodation_eq %>
+            </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col s5">
+            <div class="input-field">
             <%= f.search_field :benefit_wage_gteq, placeholder: Benefit.human_attribute_name('wage') %>
+            <%= f.label :benefit_wage_gteq %>
+            </div>
           </div>
           <div class="col s2 center-align">
             〜
           </div>
           <div class="col s5">
+            <div class="input-field">
             <%= f.search_field :benefit_wage_lteq, placeholder: Benefit.human_attribute_name('wage') %>
+            <%= f.label :benefit_wage_lteq %>
+            </div>
           </div>
         </div>
 
+        <div class="input-field">
         <%= f.select :benefit_lunch_eq, [true, false], include_blank: Benefit.human_attribute_name('lunch') %>
+        <%= f.label :benefit_lunch_eq %>
+        </div>
 
         <%= f.submit %>
         <% end %>
