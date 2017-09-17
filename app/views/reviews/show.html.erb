@@ -24,10 +24,16 @@
 </p>
 
 <p>
+  <strong><%= Review.human_attribute_name('pdf') %>:</strong>
+  <%= content_tag :object, "", type: "application/pdf", data: @review.pdf_url %>
+</p>
+
+<p>
   <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
   <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
 </p>
 
+<% if @benefit %>
 <p>
   <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
   <%= @benefit.transportation %>
@@ -47,6 +53,7 @@
   <strong><%= Benefit.human_attribute_name('lunch') %>:</strong>
   <%= @benefit.lunch %>
 </p>
+<% end %>
 
 <%= link_to '編集', edit_review_path(@review) %>
 
