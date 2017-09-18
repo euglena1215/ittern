@@ -12,17 +12,21 @@
 
   <%= search_form_for @search do |f| %>
   <div class="row">
-    <div class="col m6 s12">
+    <div class="col m4 s12">
       <div class="input-field">
         <%= f.search_field :content_cont %>
         <%= f.label :content_cont, "キーワード検索" %>
       </div>
     </div>
-    <div class="col m6 s12">
+    <div class="col m4 s12">
       <div class="input-field">
       <%= f.select :company_id_eq, options_from_collection_for_select(Company.all, :id, :name), include_blank: "未指定" %>
       <%= f.label :company_id_eq, "企業" %>
       </div>
+    </div>
+    <div class="col m4 s12 rate">
+    <%= f.label :rate_eq, "評価" %>
+    <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
     </div>
   </div>
 
@@ -38,11 +42,6 @@
             <div class="input-field">
               <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: Review.human_attribute_name('user') %>
               <%= f.label :user_id_eq %>
-            </div>
-
-            <div class="input-field">
-              <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
-              <%= f.label :rate_eq %>
             </div>
 
             <div class="input-field">
@@ -119,6 +118,9 @@
 <script>
 $("document").ready(function() {
   $(".collapsible").collapsible();
-  $('select').material_select();
+  $("div.input-field select").material_select();
+  $(".rate select").barrating({
+    theme: "css-stars"
+  });
 });
 </script>

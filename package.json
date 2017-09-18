@@ -2,6 +2,7 @@
   "name": "ittern",
   "private": true,
   "dependencies": {
+    "jquery-bar-rating": "^1.2.2",
     "materialize-css": "^0.100.2"
   }
 }

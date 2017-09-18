@@ -12,6 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'materialize-css/sass/materialize'
+ *= require 'jquery-bar-rating/dist/themes/css-stars.css'
  */
-
-@import 'materialize-css/sass/materialize'

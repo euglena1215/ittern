@@ -14,4 +14,5 @@
 //= require turbolinks
 //= require jquery
 //= require materialize-css/dist/js/materialize
+//= require jquery-bar-rating/jquery.barrating
 //= require_tree .
