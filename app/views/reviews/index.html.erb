@@ -39,29 +39,36 @@
             こだわってみる？
           </div>
           <div class="collapsible-body">
-            <div class="input-field">
-              <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: Review.human_attribute_name('user') %>
-              <%= f.label :user_id_eq %>
-            </div>
-
-            <div class="input-field">
-              <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
-              <%= f.label :tags_id_eq %>
-            </div>
-
             <div class="row">
-              <div class="input-field col s6">
+              <div class="col s6">
                 <div class="input-field">
-                  <%= f.select :benefit_transportation_eq, [true, false], include_blank: Benefit.human_attribute_name('transportation') %>
-                  <%= f.label :benefit_transportation_eq %>
+                  <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: Review.human_attribute_name('user') %>
+                  <%= f.label :user_id_eq %>
                 </div>
               </div>
 
-              <div class="input-field col s6">
+              <div class="col s6">
                 <div class="input-field">
-                  <%= f.select :benefit_accommodation_eq, [true, false], include_blank: Benefit.human_attribute_name('accommodation') %>
-                  <%= f.label :benefit_accommodation_eq %>
+                  <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
+                  <%= f.label :tags_id_eq %>
                 </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col m6 s12">
+                <%= f.check_box :benefit_transportation_eq %>
+                <%= f.label :benefit_transportation_eq, "交通費が支給される！" %>
+              </div>
+
+              <div class="col m6 s12">
+                <%= f.check_box :benefit_accommodation_eq %>
+                <%= f.label :benefit_accommodation_eq, "宿泊場所が提供される！" %>
+              </div>
+
+              <div class="col m6 s12">
+                <%= f.check_box :benefit_lunch_eq %>
+                <%= f.label :benefit_lunch_eq, "昼食が提供される！" %>
               </div>
             </div>
 
@@ -81,11 +88,6 @@
                   <%= f.label :benefit_wage_lteq %>
                 </div>
               </div>
-            </div>
-
-            <div class="input-field">
-              <%= f.select :benefit_lunch_eq, [true, false], include_blank: Benefit.human_attribute_name('lunch') %>
-              <%= f.label :benefit_lunch_eq %>
             </div>
           </div>
         </li>
@@ -122,5 +124,8 @@ $("document").ready(function() {
   $(".rate select").barrating({
     theme: "css-stars"
   });
+  $("input[name='q[benefit_transportation_eq]'][type='hidden']").attr("value", "");
+  $("input[name='q[benefit_accommodation_eq]'][type='hidden']").attr("value", "");
+  $("input[name='q[benefit_lunch_eq]'][type='hidden']").attr("value", "");
 });
 </script>
