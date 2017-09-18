@@ -1,0 +1,10 @@
+<script>
+$("document").ready(function() {
+  $('select').material_select();
+  $('.chips').material_chip({
+    placeholder: "タグ"
+  });
+  $('#tags input').attr('id', '<%= name %>_tag_list');
+  $('#tags input').attr('name', '<%= name %>[tag_list]');
+});
+</script>

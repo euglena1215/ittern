@@ -28,13 +28,4 @@
   </div>
 <% end %>
 
-<script>
-$("document").ready(function() {
-  $('select').material_select();
-  $('.chips').material_chip({
-    placeholder: "タグ"
-  });
-  $('#tags input').attr('id', 'review_tag_list');
-  $('#tags input').attr('name', 'review[tag_list]');
-});
-</script>
+<%= render "shared/formjs", name: "reviews" %>

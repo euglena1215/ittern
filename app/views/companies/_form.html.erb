@@ -33,12 +33,4 @@
   </div>
 <% end %>
 
-<script>
-$("document").ready(function() {
-  $('.chips').material_chip({
-    placeholder: "タグ"
-  });
-  $('#tags input').attr('id', 'company_tag_list');
-  $('#tags input').attr('name', 'company[tag_list]');
-});
-</script>
+<%= render "shared/formjs", name: "company" %>
