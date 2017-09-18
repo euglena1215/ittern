@@ -1,4 +1,15 @@
 <div class="container">
+  <div class="row">
+    <div class="col m8 s12">
+      <h3>体験談一覧</h3>
+    </div>
+    <div class="col m4 s12">
+      <div class="right">
+        <%= link_to '体験談を投稿', new_review_path, class: "btn", style: "margin-top:20px;" %>
+      </div>
+    </div>
+  </div>
+
   <ul class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header">
@@ -76,9 +87,6 @@
       </div>
     </li>
   </ul>
-
-  <h1>体験談一覧</h1>
-  <%= link_to '新規体験談を作成', new_review_path, class: "btn" %>
 
   <div class="row">
     <% @reviews.each do |review| %>
