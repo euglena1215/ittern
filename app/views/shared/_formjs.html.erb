@@ -1,10 +1,31 @@
 <script>
 $("document").ready(function() {
   $('select').material_select();
+  let tags = <%= val.to_s.html_safe %>;
+  let tagsArr = [];
+  for(let tag of tags) {
+    tagsArr = tagsArr.concat({tag});
+  }
   $('.chips').material_chip({
-    placeholder: "タグ"
+    placeholder: "タグ",
+    data: tagsArr
   });
-  $('#tags input').attr('id', '<%= name %>_tag_list');
-  $('#tags input').attr('name', '<%= name %>[tag_list]');
+
+  $('.chips').on('chip.add', function(e, chip) {
+    _updateTags(chip);
+  });
+
+  $('.chips').on('chip.delete', function(e, chip) {
+    _updateTags(chip);
+  });
 });
+
+function _updateTags(chip) {
+  let chipsArr = $('.chips').material_chip('data');
+  let chips = "";
+  for(let chip of chipsArr) {
+    chips += chip['tag'] + ',';
+  }
+  $('#tag_list').attr('value', chips);
+}
 </script>

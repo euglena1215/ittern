@@ -27,10 +27,11 @@
   </div>
 
   <div class="chips" id="tags"></div>
+  <%= form.hidden_field :tag_list, id: "tag_list" %>
 
   <div class="actions">
     <%= form.submit class: "btn" %>
   </div>
 <% end %>
 
-<%= render "shared/formjs", name: "company" %>
+<%= render "shared/formjs", val: @company.tags.pluck(:name) %>
