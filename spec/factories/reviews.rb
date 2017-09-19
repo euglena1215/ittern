@@ -17,6 +17,11 @@
 #  index_reviews_on_company_id  (company_id)
 #  index_reviews_on_user_id     (user_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (company_id => companies.id)
+#  fk_rails_...  (user_id => users.id)
+#
 
 FactoryGirl.define do
   factory :review do
