@@ -8,7 +8,7 @@
 
   <div class="field">
     <%= form.label :url %>
-    <%= form.text_field :url, id: :company_url %>
+    <%= form.url_field :url, id: :company_url %>
   </div>
 
   <div class="field">
@@ -16,17 +16,22 @@
     <%= form.text_field :address, id: :company_address %>
   </div>
 
-  <div class="field">
-    <%= form.label :logo %>
-    <%= form.file_field :logo, id: :company_logo %>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>ロゴ</span>
+      <%= form.file_field :logo, id: :company_logo %>
+    </div>
+    <div class="file-path-wrapper">
+      <input type="text" class="file-path validate">
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :tag_list %>
-    <%= form.text_field :tag_list, id: :company_tag_list %>
-  </div>
+  <div class="chips" id="tags"></div>
+  <%= form.hidden_field :tag_list, id: "tag_list" %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn" %>
   </div>
 <% end %>
+
+<%= render "shared/formjs", val: @company.tags.pluck(:name) %>

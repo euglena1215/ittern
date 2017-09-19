@@ -1,59 +1,132 @@
-<%= search_form_for @search do |f| %>
-  <%= f.search_field :content_cont, placeholder: Review.human_attribute_name('content') %>
+<div class="container">
+  <div class="row">
+    <div class="col m8 s12">
+      <h3>体験談一覧</h3>
+    </div>
+    <div class="col m4 s12">
+      <div class="right">
+        <%= link_to '体験談を投稿', new_review_path, class: "btn", style: "margin-top:20px;" %>
+      </div>
+    </div>
+  </div>
 
-  <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: Review.human_attribute_name('user') %>
+  <%= search_form_for @search do |f| %>
+  <div class="row">
+    <div class="col m4 s12">
+      <div class="input-field">
+        <%= f.search_field :content_cont %>
+        <%= f.label :content_cont, "キーワード検索" %>
+      </div>
+    </div>
+    <div class="col m4 s12">
+      <div class="input-field">
+      <%= f.select :company_id_eq, options_from_collection_for_select(Company.all, :id, :name), include_blank: "指定しない" %>
+      <%= f.label :company_id_eq, "企業" %>
+      </div>
+    </div>
+    <div class="col m4 s12 rate">
+    <%= f.label :rate_eq, "評価" %>
+    <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
+    </div>
+  </div>
 
-  <%= f.select :company_id_eq, options_from_collection_for_select(Company.all, :id, :name), include_blank: Review.human_attribute_name('company') %>
+  <div class="row">
+    <div class="col m10 s12">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">search</i>
+            こだわってみる？
+          </div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col l4 m6 s12">
+                <%= f.check_box :benefit_transportation_eq %>
+                <%= f.label :benefit_transportation_eq, "交通費が支給される！" %>
+              </div>
 
-  <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
+              <div class="col l4 m6 s12">
+                <%= f.check_box :benefit_accommodation_eq %>
+                <%= f.label :benefit_accommodation_eq, "宿泊場所が提供される！" %>
+              </div>
 
-  <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: Review.human_attribute_name('tag_list') %>
+              <div class="col l4 m6 s12">
+                <%= f.check_box :benefit_lunch_eq %>
+                <%= f.label :benefit_lunch_eq, "昼食が提供される！" %>
+              </div>
+            </div>
 
-  <%= f.select :benefit_transportation_eq, [true, false], include_blank: Benefit.human_attribute_name('transportation') %>
+            <div class="row">
+              <div class="col s12">
+                日給
+                <div class="input-field inline">
+                  <%= f.number_field :benefit_wage_gteq %>
+                </div>
+                円以上
+              </div>
+            </div>
 
-  <%= f.select :benefit_accommodation_eq, [true, false], include_blank: Benefit.human_attribute_name('accommodation') %>
+            <div class="row">
+              <div class="col s6">
+                <div class="input-field">
+                  <%= f.select :user_id_eq, options_from_collection_for_select(User.all, :id, :name), include_blank: "指定しない" %>
+                  <%= f.label :user_id_eq, "投稿ユーザー" %>
+                </div>
+              </div>
 
-  <%= f.search_field :benefit_wage_gteq, placeholder: Benefit.human_attribute_name('wage') %>
-  〜
-  <%= f.search_field :benefit_wage_lteq, placeholder: Benefit.human_attribute_name('wage') %>
+              <div class="col s6">
+                <div class="input-field">
+                  <%= f.select :tags_id_eq, options_from_collection_for_select(Review.tag_counts_on(:tags), :id, :name), include_blank: "指定しない" %>
+                  <%= f.label :tags_id_eq, "タグ" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col m2 s12">
+      <%= f.submit class: "btn" %>
+    </div>
+  </div>
+  <% end %>
 
-  <%= f.select :benefit_lunch_eq, [true, false], include_blank: Benefit.human_attribute_name('lunch') %>
-
-  <%= f.submit %>
-<% end %>
-
-<h1>体験談一覧</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th><%= Review.human_attribute_name('content') %></th>
-      <th><%= Review.human_attribute_name('user') %></th>
-      <th><%= Review.human_attribute_name('url') %></th>
-      <th><%= Review.human_attribute_name('company') %></th>
-      <th><%= Review.human_attribute_name('rate') %></th>
-      <th><%= Review.human_attribute_name('tag_list') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @reviews.each do |review| %>
-      <tr>
-        <td><%= truncate(review.content, length: 30) if review.content %></td>
-        <td><%= review.user.name %></td>
-        <td><%= review.url %></td>
-        <td><%= review.company.name %></td>
-        <td><%= review.rate %></td>
-        <td><%= review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %></td>
-        <td><%= link_to '詳細', review %></td>
-        <td><%= link_to '編集', edit_review_path(review) %></td>
-        <td><%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col s12 m6 l4">
+      <a href="<%= review_path review %>" style="color:#039be5;">
+        <div class="card">
+          <div class="card-image" style="background:url(<%= review.company.logo_url %>) no-repeat center center; background-size:contain; height:150px;">
+          </div>
+          <div class="card-content">
+            <p class="truncate"><%= review.content %></p>
+            <p class="right">
+              <small><%= review.created_at.strftime("%Y/%m/%d") %>　<%= review.user.name %></small>
+            </p>
+            <div>
+              <% review.tags.each do |tag| %>
+              <a href="<%= reviews_path %>?q[tags_id_eq]=<%= tag.id %>">
+                <div class='chip'>#<%= tag.name %></div>
+              </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
-
-<%= link_to '新規体験談を作成', new_review_path %>
+<script>
+$("document").ready(function() {
+  $(".collapsible").collapsible();
+  $("div.input-field select").material_select();
+  $(".rate select").barrating({
+    theme: "css-stars"
+  });
+  $("input[name='q[benefit_transportation_eq]'][type='hidden']").attr("value", "");
+  $("input[name='q[benefit_accommodation_eq]'][type='hidden']").attr("value", "");
+  $("input[name='q[benefit_lunch_eq]'][type='hidden']").attr("value", "");
+});
+</script>

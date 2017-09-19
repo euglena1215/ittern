@@ -1,9 +1,9 @@
 <%= form_with(model: review, local: true) do |form| %>
   <%= render "shared/errors", object: review %>
 
-  <div class="field">
+  <div class="input-field">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :review_content %>
+    <%= form.text_area :content, id: :review_content, class: "materialize-textarea" %>
   </div>
 
   <div class="field">
@@ -21,12 +21,12 @@
     <%= form.select :rate, (1..5).to_a, id: :review_rate %>
   </div>
 
-  <div class="field">
-    <%= form.label :tag_list %>
-    <%= form.text_field :tag_list, id: :review_tag_list %>
-  </div>
+  <div class="chips" id="tags"></div>
+  <%= form.hidden_field :tag_list, id: "tag_list" %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn" %>
   </div>
 <% end %>
+
+<%= render "shared/formjs", val: @review.tags.pluck(:name) %>
