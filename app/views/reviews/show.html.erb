@@ -1,60 +1,62 @@
-<p>
-  <strong><%= Review.human_attribute_name('content') %>:</strong>
-  <%= simple_format(@review.content) if @review.content %>
-</p>
+<div class="container">
+  <p>
+    <strong><%= Review.human_attribute_name('content') %>:</strong>
+    <%= simple_format(@review.content) if @review.content %>
+  </p>
 
-<p>
-  <strong><%= Review.human_attribute_name('user') %>:</strong>
-  <%= link_to @review.user.name, user_path(@review.user) %>
-</p>
+  <p>
+    <strong><%= Review.human_attribute_name('user') %>:</strong>
+    <%= link_to @review.user.name, user_path(@review.user) %>
+  </p>
 
-<p>
-  <strong><%= Review.human_attribute_name('url') %>:</strong>
-  <%= @review.url %>
-</p>
+  <p>
+    <strong><%= Review.human_attribute_name('url') %>:</strong>
+    <%= @review.url %>
+  </p>
 
-<p>
-  <strong><%= Review.human_attribute_name('company') %>:</strong>
-  <%= link_to @review.company.name, company_path(@review.company) %>
-</p>
+  <p>
+    <strong><%= Review.human_attribute_name('company') %>:</strong>
+    <%= link_to @review.company.name, company_path(@review.company) %>
+  </p>
 
-<p>
-  <strong><%= Review.human_attribute_name('rate') %>:</strong>
-  <%= @review.rate %>
-</p>
+  <p>
+    <strong><%= Review.human_attribute_name('rate') %>:</strong>
+    <%= @review.rate %>
+  </p>
 
-<p>
-  <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
-  <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
-</p>
+  <p>
+    <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
+    <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
+  </p>
 
-<p>
-  <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
-  <%= @benefit.transportation %>
-</p>
+  <p>
+    <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
+    <%= @benefit.transportation %>
+  </p>
 
-<p>
-  <strong><%= Benefit.human_attribute_name('accommodation') %>:</strong>
-  <%= @benefit.accommodation %>
-</p>
+  <p>
+    <strong><%= Benefit.human_attribute_name('accommodation') %>:</strong>
+    <%= @benefit.accommodation %>
+  </p>
 
-<p>
-  <strong><%= Benefit.human_attribute_name('wage') %>:</strong>
-  <%= @benefit.wage %>
-</p>
+  <p>
+    <strong><%= Benefit.human_attribute_name('wage') %>:</strong>
+    <%= @benefit.wage %>
+  </p>
 
-<p>
-  <strong><%= Benefit.human_attribute_name('lunch') %>:</strong>
-  <%= @benefit.lunch %>
-</p>
+  <p>
+    <strong><%= Benefit.human_attribute_name('lunch') %>:</strong>
+    <%= @benefit.lunch %>
+  </p>
 
-<%= link_to '編集', edit_review_path(@review) %>
+  <%= link_to '編集', edit_review_path(@review) %>
 
-<hr>
-<h2>コメント</h2>
-<% @comments.each do |comment| %>
-<pre>
-  <%= comment.content %>
-  <%= comment.user.name %>
-</pre>
-<% end %>
+  <hr>
+  <h2>コメント</h2>
+  <% @comments.each do |comment| %>
+  <pre>
+    <%= comment.content %>
+    <%= comment.user.name %>
+  </pre>
+  <% end %>
+</div>
