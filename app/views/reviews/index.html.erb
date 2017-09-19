@@ -99,8 +99,17 @@
           <div class="card-image" style="background:url(<%= review.company.logo_url %>) no-repeat center center; background-size:contain; height:150px;">
           </div>
           <div class="card-content">
-            <span class="card-title"><%= review.company.name %> - <%= review.user.name %></span>
-            <p><%= review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %></p>
+            <p class="truncate"><%= review.content %></p>
+            <p class="right">
+              <small><%= review.created_at.strftime("%Y/%m/%d") %>　<%= review.user.name %></small>
+            </p>
+            <div>
+              <% review.tags.each do |tag| %>
+              <a href="<%= reviews_path %>?q[tags_id_eq]=<%= tag.id %>">
+                <div class='chip'>#<%= tag.name %></div>
+              </a>
+              <% end %>
+            </div>
           </div>
         </div>
       </a>
