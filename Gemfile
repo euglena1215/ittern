@@ -84,7 +84,7 @@ gem "inum"
 
 # 画像アップロード
 gem "carrierwave"
-gem "rmagick", require: "RMagick"
+gem 'mini_magick'
 
 # ログイン周り
 gem "devise"
