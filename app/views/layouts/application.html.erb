@@ -18,8 +18,8 @@
             <i class="material-icons">menu</i>
           </a>
           <ul class="right hide-on-med-and-down">
-            <li><%= link_to "体験談", reviews_path %></li>
-            <li><%= link_to "企業一覧", companies_path %></li>
+            <li class="<%= active_nav?("reviews") %>"><%= link_to "体験談", reviews_path %></li>
+            <li class="<%= active_nav?("companies") %>"><%= link_to "企業一覧", companies_path %></li>
             <% if user_signed_in? %>
             <li>
               <a class="dropdown-button" href="#" data-activates="signedin_menu">
@@ -46,8 +46,8 @@
             <% end %>
           </ul>
           <ul class="side-nav" id="mobile-nav">
-            <li><%= link_to "体験談", reviews_path %></li>
-            <li><%= link_to "企業一覧", companies_path %></li>
+            <li class="<%= active_nav?("reviews") %>"><%= link_to "体験談", reviews_path %></li>
+            <li class="<%= active_nav?("companies") %>"><%= link_to "企業一覧", companies_path %></li>
             <% if user_signed_in? %>
             <li>
               <a class="dropdown-button" href="#" data-activates="nav_signedin_menu">
