@@ -25,8 +25,8 @@
       </div>
     </div>
     <div class="col m4 s12 rate">
-    <%= f.label :rate_eq, "評価" %>
-    <%= f.select :rate_eq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>
+    <%= f.label :rate_gteq, "評価" %>
+    <%= f.select :rate_gteq, (1..5).to_a, include_blank: Review.human_attribute_name('rate') %>以上
     </div>
   </div>
 
@@ -90,6 +90,8 @@
     </div>
   </div>
   <% end %>
+
+  <b><%= @reviews.count %>件</b>
 
   <div class="row">
     <% @reviews.each do |review| %>
