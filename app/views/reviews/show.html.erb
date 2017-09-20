@@ -1,4 +1,5 @@
 <div class="container">
+  <h3><%= @review.company.name %>のインターン</h3>
   <p>
     <strong><%= Review.human_attribute_name('content') %>:</strong>
     <%= simple_format(@review.content) if @review.content %>
@@ -11,7 +12,7 @@
 
   <p>
     <strong><%= Review.human_attribute_name('url') %>:</strong>
-    <%= @review.url %>
+    <%= link_to @review.url, @review.url %>
   </p>
 
   <p>
@@ -21,12 +22,14 @@
 
   <p>
     <strong><%= Review.human_attribute_name('rate') %>:</strong>
-    <%= @review.rate %>
+    <%= select_tag "rate", options_for_select((1..5).to_a), id: "rate", selected: @review.rate %>
   </p>
 
   <p>
     <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
-    <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
+    <% @review.tags.each do |tag| %>
+    <div class='chip'>#<%= tag.name %></div>
+    <% end %>
   </p>
 
   <p>
@@ -60,3 +63,12 @@
   </pre>
   <% end %>
 </div>
+
+<script>
+$("document").ready(function() {
+  $("#rate").barrating({
+    theme: "css-stars",
+    readonly: true
+  });
+});
+</script>
