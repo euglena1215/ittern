@@ -34,22 +34,22 @@
 
   <p>
     <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
-    <%= @benefit.transportation %>
+    <%= show_transportation @benefit.transportation %>
   </p>
 
   <p>
     <strong><%= Benefit.human_attribute_name('accommodation') %>:</strong>
-    <%= @benefit.accommodation %>
+    <%= show_accommodation @benefit.accommodation %>
   </p>
 
   <p>
     <strong><%= Benefit.human_attribute_name('wage') %>:</strong>
-    <%= @benefit.wage %>
+    <%= @benefit.wage %>円
   </p>
 
   <p>
     <strong><%= Benefit.human_attribute_name('lunch') %>:</strong>
-    <%= @benefit.lunch %>
+    <%= show_lunch @benefit.lunch %>
   </p>
 
   <%= link_to '編集', edit_review_path(@review) %>
