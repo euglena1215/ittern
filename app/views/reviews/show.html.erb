@@ -57,10 +57,15 @@
   <hr>
   <h2>コメント</h2>
   <% @comments.each do |comment| %>
-  <pre>
+  <div class="card-panel teal white">
     <%= comment.content %>
-    <%= comment.user.name %>
-  </pre>
+    <div>
+      <div class="chip">
+        <i class="material-icons">face</i>
+        <%= comment.user.name %>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
 
