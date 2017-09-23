@@ -29,6 +29,13 @@
 </p>
 
 <p>
+  <strong><%= Review.human_attribute_name('images') %>:</strong>
+  <% @review.images.each do |image| %>
+  <%= image_tag image.url %>
+  <% end %>
+</p>
+
+<p>
   <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
   <%= @review.tags.pluck(:name).map { |name| "##{name}" }.join(" ") %>
 </p>
