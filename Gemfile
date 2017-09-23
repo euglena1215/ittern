@@ -40,6 +40,9 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "rspec-rails"
   gem "selenium-webdriver"
+
+  # binding.pry
+  gem "pry-byebug"
 end
 
 group :development do

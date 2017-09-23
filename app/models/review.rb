@@ -28,6 +28,7 @@ class Review < ApplicationRecord
   acts_as_taggable
 
   mount_uploader :pdf, ReviewPdfUploader
+  mount_uploader :images, ReviewImagesUploader
 
   has_many :comments
   has_one :benefit
