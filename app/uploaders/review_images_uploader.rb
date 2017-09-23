@@ -1,5 +1,4 @@
 class ReviewImagesUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -37,7 +36,7 @@ class ReviewImagesUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg)
+    %w[jpg]
   end
 
   # Override the filename of the uploaded files:
@@ -45,5 +44,4 @@ class ReviewImagesUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

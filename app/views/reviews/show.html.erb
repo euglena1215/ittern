@@ -24,14 +24,15 @@
 </p>
 
 <p>
-  <strong><%= Review.human_attribute_name('pdf') %>:</strong>
-  <%= content_tag :object, "", type: "application/pdf", data: @review.pdf_url %>
-</p>
-
-<p>
   <strong><%= Review.human_attribute_name('images') %>:</strong>
-  <% @review.images.each do |image| %>
-  <%= image_tag image.url %>
+  <% if @review.images.present? %>
+  <div class="container">
+    <div class="carousel carousel-slider">
+      <% @review.images.each do |image| %>
+        <a class="carousel-item"><%= image_tag image.url %></a>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 </p>
 
@@ -72,3 +73,12 @@
   <%= comment.user.name %>
 </pre>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.carousel.carousel-slider').carousel({
+      fullWidth: true,
+      indicators: true
+    });
+  });
+</script>

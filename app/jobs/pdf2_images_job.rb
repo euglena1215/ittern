@@ -3,7 +3,7 @@ class Pdf2ImagesJob < ApplicationJob
 
   def perform(review)
     pdf_path = review.pdf.path
-    img_basename = File.basename(pdf_path, '.pdf')
+    img_basename = File.basename(pdf_path, ".pdf")
 
     Dir.mktmpdir do |dir|
       `pdftocairo -jpeg -r 50 #{pdf_path} #{dir}/#{img_basename}`

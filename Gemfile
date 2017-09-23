@@ -87,7 +87,7 @@ gem "inum"
 
 # 画像アップロード
 gem "carrierwave"
-gem 'mini_magick'
+gem "mini_magick"
 
 # ログイン周り
 gem "devise"
@@ -99,4 +99,4 @@ gem "acts-as-taggable-on"
 gem "ransack"
 
 # Active Job
-gem 'sidekiq'
+gem "sidekiq"
