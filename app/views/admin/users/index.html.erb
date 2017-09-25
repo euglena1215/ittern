@@ -1,8 +1,11 @@
-<h1>Users</h1>
+<h1>ユーザー一覧</h1>
 
 <table>
   <thead>
     <tr>
+      <th><%= User.human_attribute_name("name") %></th>
+      <th><%= User.human_attribute_name("email") %></th>
+      <th><%= User.human_attribute_name("is_admin") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -10,9 +13,12 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.is_admin %></td>
+        <td><%= link_to '詳細', admin_user_path(user) %></td>
+        <td><%= link_to '編集', edit_admin_user_path(user) %></td>
+        <td><%= link_to '削除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

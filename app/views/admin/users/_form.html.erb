@@ -1,6 +1,16 @@
 <%= form_with(model: user, local: true) do |form| %>
   <%= render "shared/errors", object: user %>
 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :is_admin, id: :is_admin %>
+    <%= form.label "管理者権限", for: :is_admin, id: :is_admin %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
