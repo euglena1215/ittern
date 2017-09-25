@@ -1,0 +1,7 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <%= render "shared/errors", object: user %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

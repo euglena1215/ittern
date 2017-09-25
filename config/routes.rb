@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   resources :reviews
   resources :comments
   resources :benefits
+
+  namespace :admin do
+    root "users#index"
+    resources :users, except: [:new, :create]
+  end
 end
