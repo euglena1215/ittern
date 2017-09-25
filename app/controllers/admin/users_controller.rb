@@ -20,7 +20,7 @@ class Admin::UsersController < Admin::BaseController
   # PATCH/PUT /admin/users/1.json
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: "User was successfully updated."
     else
       render :edit
     end
@@ -29,11 +29,12 @@ class Admin::UsersController < Admin::BaseController
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    @user.destroy
-    redirect_to admin_users_url, notice: 'User was successfully destroyed.'
+    @user.destroy!
+    redirect_to admin_users_url, notice: "User was successfully destroyed."
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
