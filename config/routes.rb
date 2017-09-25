@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "users#index"
     resources :users, except: [:new, :create]
+    resources :companies
   end
 end
