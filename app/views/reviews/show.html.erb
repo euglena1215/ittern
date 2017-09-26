@@ -1,45 +1,28 @@
 <div class="container">
-  <h3><%= @review.company.name %>のインターン</h3>
+  <div class="row">
+    <div class="col m6 s12">
+      <h5><%= link_to @review.company.name, company_path(@review.company) %>のインターン</h5>
+    </div>
+    <div class="pad__top--10">
+      <div class="col m2 s12">
+        <i class="material-icons <%= icon_color @benefit.lunch %> lighten-1">local_dining</i>
+        <i class="material-icons <%= icon_color @benefit.transportation %> lighten-1">directions_car</i>
+        <i class="material-icons <%= icon_color @benefit.accommodation %> lighten-1">hotel</i>
+      </div>
+      <div class="col m4 s12">
+        <%= select_tag "rate", options_for_select((1..5).to_a), id: "rate", selected: @review.rate %>
+      </div>
+    </div>
+  </div>
+
   <p>
-    <strong><%= Review.human_attribute_name('content') %>:</strong>
     <%= simple_format(@review.content) if @review.content %>
   </p>
 
   <p>
-    <strong><%= Review.human_attribute_name('user') %>:</strong>
-    <%= link_to @review.user.name, user_path(@review.user) %>
-  </p>
-
-  <p>
-    <strong><%= Review.human_attribute_name('url') %>:</strong>
-    <%= link_to @review.url, @review.url %>
-  </p>
-
-  <p>
-    <strong><%= Review.human_attribute_name('company') %>:</strong>
-    <%= link_to @review.company.name, company_path(@review.company) %>
-  </p>
-
-  <p>
-    <strong><%= Review.human_attribute_name('rate') %>:</strong>
-    <%= select_tag "rate", options_for_select((1..5).to_a), id: "rate", selected: @review.rate %>
-  </p>
-
-  <p>
-    <strong><%= Review.human_attribute_name('tag_list') %>:</strong>
     <% @review.tags.each do |tag| %>
     <div class='chip'>#<%= tag.name %></div>
     <% end %>
-  </p>
-
-  <p>
-    <strong><%= Benefit.human_attribute_name('transportation') %>:</strong>
-    <%= show_transportation @benefit.transportation %>
-  </p>
-
-  <p>
-    <strong><%= Benefit.human_attribute_name('accommodation') %>:</strong>
-    <%= show_accommodation @benefit.accommodation %>
   </p>
 
   <p>
@@ -48,9 +31,13 @@
   </p>
 
   <p>
-    <strong><%= Benefit.human_attribute_name('lunch') %>:</strong>
-    <%= show_lunch @benefit.lunch %>
+    <strong><%= Review.human_attribute_name('url') %>:</strong>
+    <%= link_to @review.url, @review.url %>
   </p>
+
+  <div class="right-align">
+    <%= @review.created_at.strftime("%Y/%m/%d") %>　<%= link_to @review.user.name, user_path(@review.user) %>
+  </div>
 
   <%= link_to '編集', edit_review_path(@review) %>
 
