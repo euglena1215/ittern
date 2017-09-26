@@ -7,23 +7,23 @@
   </div>
 
   <div class="field">
-    <%= form.label :transportation %>
-    <%= form.check_box :transportation, id: :benefit_transportation %>
-  </div>
-
-  <div class="field">
-    <%= form.label :accommodation %>
-    <%= form.check_box :accommodation, id: :benefit_accommodation %>
-  </div>
-
-  <div class="field">
     <%= form.label :wage %>
     <%= form.number_field :wage, id: :benefit_wage %>
   </div>
 
   <div class="field">
-    <%= form.label :lunch %>
-    <%= form.check_box :lunch, id: :benefit_lunch %>
+    <%= form.check_box :transportation, id: :transportation %>
+    <%= form.label "交通費がもらえる", for: :transportation, id: :transportation %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :accommodation, id: :accommodation %>
+    <%= form.label "宿泊場所がある", for: :accommodation, id: :accommodation %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :lunch, id: :lunch %>
+    <%= form.label "ランチを食べさせてくれる", for: :lunch, id: :lunch %>
   </div>
 
   <div class="actions">

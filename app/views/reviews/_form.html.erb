@@ -24,6 +24,30 @@
   <div class="chips" id="tags"></div>
   <%= form.hidden_field :tag_list, id: "tag_list" %>
 
+  <%= form.fields_for :benefit, review.benefit || Benefit.new do |b| %>
+    <div class="field">
+      <%= b.label :wage %>
+      <%= b.number_field :wage, id: :benefit_wage %>
+    </div>
+
+    <div class="row">
+      <div class="col s4 field">
+        <%= b.check_box :transportation, id: :transportation %>
+        <%= b.label "交通費がもらえる", for: :transportation, id: :transportation %>
+      </div>
+
+      <div class="col s4 field">
+        <%= b.check_box :accommodation, id: :accommodation %>
+        <%= b.label "宿泊場所がある", for: :accommodation, id: :accommodation %>
+      </div>
+
+      <div class="col s4 field">
+        <%= b.check_box :lunch, id: :lunch %>
+        <%= b.label "ランチを食べさせてくれる", for: :lunch, id: :lunch %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit class: "btn" %>
   </div>
