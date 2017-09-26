@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "companies#index"
+  root "reviews#index"
 
   devise_for :users
   if Rails.env.development?
