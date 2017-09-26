@@ -26,6 +26,8 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :company
 
+  accepts_nested_attributes_for :benefit
+
   validates :content, presence: true
 
   validates :url,
