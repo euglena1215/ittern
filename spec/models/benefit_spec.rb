@@ -15,6 +15,10 @@
 #
 #  index_benefits_on_review_id  (review_id) UNIQUE
 #
+# Foreign Keys
+#
+#  fk_rails_...  (review_id => reviews.id)
+#
 
 require "rails_helper"
 

@@ -8,7 +8,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 5.1.3"
 # Use sqlite3 as the database for Active Record
-gem "sqlite3"
+gem "pg"
 # Use Puma as the app server
 gem "puma", "~> 3.7"
 # Use SCSS for stylesheets
@@ -40,6 +40,9 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "rspec-rails"
   gem "selenium-webdriver"
+
+  # binding.pry
+  gem "pry-byebug"
 end
 
 group :development do
@@ -84,7 +87,7 @@ gem "inum"
 
 # 画像アップロード
 gem "carrierwave"
-gem "rmagick", require: "RMagick"
+gem "mini_magick"
 
 # ログイン周り
 gem "devise"
@@ -94,3 +97,6 @@ gem "acts-as-taggable-on"
 
 # 検索機能
 gem "ransack"
+
+# Active Job
+gem "sidekiq"

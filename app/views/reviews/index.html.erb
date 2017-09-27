@@ -98,7 +98,7 @@
     <div class="col s12 m6 l4">
       <a href="<%= review_path review %>" style="color:#039be5;">
         <div class="card">
-          <div class="card-image" style="background:url(<%= review.company.logo_url %>) no-repeat center center; background-size:contain; height:150px;">
+          <div class="card-image" style="background:url(<%= card_image_url(review) %>) no-repeat center center; background-size:contain; height:150px;">
           </div>
           <div class="card-content">
             <p class="truncate"><%= review.content %></p>

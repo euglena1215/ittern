@@ -27,3 +27,5 @@ public/uploads/
 public/assets/application-*.js*
 public/assets/application-*.css*
 public/assets/materialize-css
+
+.env

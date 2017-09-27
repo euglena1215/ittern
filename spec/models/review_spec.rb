@@ -10,11 +10,18 @@
 #  rate       :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  pdf        :string
+#  images     :string           default([]), is an Array
 #
 # Indexes
 #
 #  index_reviews_on_company_id  (company_id)
 #  index_reviews_on_user_id     (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (company_id => companies.id)
+#  fk_rails_...  (user_id => users.id)
 #
 
 require "rails_helper"

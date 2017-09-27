@@ -35,6 +35,18 @@
     <%= link_to @review.url, @review.url %>
   </p>
 
+  <p>
+    <% if @review.images.present? %>
+    <div class="container">
+      <div class="carousel carousel-slider">
+        <% @review.images.each do |image| %>
+          <a class="carousel-item"><%= image_tag image.url %></a>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </p>
+
   <div class="right-align">
     <%= @review.created_at.strftime("%Y/%m/%d") %>　<%= link_to @review.user.name, user_path(@review.user) %>
   </div>
@@ -61,6 +73,10 @@ $("document").ready(function() {
   $("#rate").barrating({
     theme: "css-stars",
     readonly: true
+  });
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
   });
 });
 </script>

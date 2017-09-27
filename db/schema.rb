@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901011825) do
+ActiveRecord::Schema.define(version: 20170919133941) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "benefits", force: :cascade do |t|
-    t.integer "review_id"
+    t.bigint "review_id"
     t.boolean "transportation", default: false, null: false
     t.boolean "accommodation", default: false, null: false
     t.integer "wage", default: 0, null: false
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170901011825) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "review_id"
-    t.integer "user_id"
+    t.bigint "review_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_comments_on_review_id"
@@ -44,17 +47,19 @@ ActiveRecord::Schema.define(version: 20170901011825) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "url"
-    t.integer "company_id"
+    t.bigint "company_id"
     t.integer "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pdf"
+    t.string "images", default: [], array: true
     t.index ["company_id"], name: "index_reviews_on_company_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -73,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170901011825) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
@@ -102,4 +107,9 @@ ActiveRecord::Schema.define(version: 20170901011825) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "benefits", "reviews"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
+  add_foreign_key "reviews", "companies"
+  add_foreign_key "reviews", "users"
 end

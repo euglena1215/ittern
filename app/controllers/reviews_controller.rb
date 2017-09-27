@@ -31,6 +31,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      Pdf2ImagesJob.perform_later(@review)
       redirect_to @review, notice: "Review was successfully created."
     else
       render :new
@@ -41,6 +42,7 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1.json
   def update
     if @review.update(review_params)
+      Pdf2ImagesJob.perform_later(@review)
       redirect_to @review, notice: "Review was successfully updated."
     else
       render :edit
@@ -68,6 +70,7 @@ class ReviewsController < ApplicationController
         :url,
         :company_id,
         :rate,
+        :pdf,
         :tag_list,
         benefit_attributes: [
           :id,

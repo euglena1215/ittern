@@ -1,4 +1,8 @@
 module ReviewsHelper
+  def card_image_url(review)
+    review.images.empty? ? review.company.logo_url : review.images[0].url
+  end
+
   # ありなしでアイコンの色を変更
   def icon_color(bool)
     bool ? "pink" : "grey"
