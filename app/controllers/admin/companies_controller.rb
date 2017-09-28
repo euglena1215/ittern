@@ -4,7 +4,7 @@ class Admin::CompaniesController < Admin::BaseController
   # GET /admin/companies
   # GET /admin/companies.json
   def index
-    @companies = Company.all
+    @companies = Company.all.includes(:taggings)
   end
 
   # GET /admin/companies/1
@@ -59,6 +59,6 @@ class Admin::CompaniesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.fetch(:company, {})
+      params.require(:company).permit(:name, :url, :address, :logo, :tag_list)
     end
 end

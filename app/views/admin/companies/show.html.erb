@@ -1,1 +1,28 @@
-<%= link_to '編集', edit_admin_company_path(@company) %> |
+<div class="container">
+  <table>
+    <tbody>
+    <tr>
+      <td><%= Company.human_attribute_name('name') %>: </td>
+      <td><%= @company.name %></td>
+    </tr>
+    <tr>
+      <td><%= Company.human_attribute_name('logo') %>: </td>
+      <td><%= image_tag @company.logo_url(:thumb), style: "max-width:100%; width:200px;" %></td>
+    </tr>
+    <tr>
+      <td><%= Company.human_attribute_name('url') %>: </td>
+      <td><%= link_to @company.url, @company.url %></td>
+    </tr>
+    <tr>
+      <td><%= Company.human_attribute_name('address') %>: </td>
+      <td><%= @company.address %></td>
+    </tr>
+    <tr>
+      <td><%= Company.human_attribute_name('tag_list') %>: </td>
+      <td><%= @company.tag_list %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <%= link_to '編集', edit_admin_company_path(@company) %>
+</div>
