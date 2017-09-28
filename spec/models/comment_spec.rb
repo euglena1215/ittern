@@ -14,6 +14,11 @@
 #  index_comments_on_review_id  (review_id)
 #  index_comments_on_user_id    (user_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (review_id => reviews.id)
+#  fk_rails_...  (user_id => users.id)
+#
 
 require "rails_helper"
 

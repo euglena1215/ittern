@@ -5,6 +5,10 @@
 `brew install graphviz`
 https://voormedia.github.io/rails-erd/install.html
 
+* postgresqlとredisをインストールする
+
+* popplerをインストールする(pdftocairoで使用)
+
 * 各種コマンドを実行
 `bundle install --path vendor/bundle`
 `bundle exec rake db:create`
