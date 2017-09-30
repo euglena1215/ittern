@@ -27,7 +27,7 @@ class Admin::ReviewsController < Admin::BaseController
     @review = Review.new(review_params)
 
     if @review.save
-      redirect_to @review, notice: 'Review was successfully created.'
+      redirect_to @review, notice: "Review was successfully created."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class Admin::ReviewsController < Admin::BaseController
   # PATCH/PUT /reviews/1.json
   def update
     if @review.update(review_params)
-      redirect_to @review, notice: 'Review was successfully updated.'
+      redirect_to @review, notice: "Review was successfully updated."
     else
       render :edit
     end
@@ -46,11 +46,12 @@ class Admin::ReviewsController < Admin::BaseController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-    @review.destroy
-    format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+    @review.destroy!
+    format.html { redirect_to reviews_url, notice: "Review was successfully destroyed." }
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
@@ -59,20 +60,20 @@ class Admin::ReviewsController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(
-          :content,
-          :url,
-          :company_id,
-          :rate,
-          :pdf,
-          :images,
-          :tag_list,
-          benefit_attributes: [
-              :id,
-              :transportation,
-              :accommodation,
-              :wage,
-              :lunch,
-          ],
+        :content,
+        :url,
+        :company_id,
+        :rate,
+        :pdf,
+        :images,
+        :tag_list,
+        benefit_attributes: [
+          :id,
+          :transportation,
+          :accommodation,
+          :wage,
+          :lunch,
+        ],
       )
     end
 end
