@@ -1,0 +1,61 @@
+<%= form_with(model: review, local: true) do |form| %>
+  <%= render "shared/errors", object: review %>
+
+  <div class="input-field">
+    <%= form.text_area :content, id: :review_content, class: "materialize-textarea" %>
+    <%= form.label :content %>
+  </div>
+
+  <div class="input-field">
+    <%= form.text_field :url, id: :review_url %>
+    <%= form.label :url %>
+  </div>
+
+  <div class="input-field">
+    <%= form.collection_select :company_id, Company.all, :id, :name, id: :review_company_id %>
+    <%= form.label :company_id %>
+  </div>
+
+  <div class="input-field">
+    <%= form.select :rate, (1..5).to_a, id: :review_rate %>
+    <%= form.label :rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pdf %>
+    <%= form.file_field :pdf, id: :review_pdf %>
+  </div>
+
+  <div class="chips" id="tags"></div>
+  <%= form.hidden_field :tag_list, id: "tag_list" %>
+
+  <%= form.fields_for :benefit, review.benefit || Benefit.new do |b| %>
+    <div class="field">
+      <%= b.label :wage %>
+      <%= b.number_field :wage, id: :benefit_wage %>
+    </div>
+
+    <div class="row">
+      <div class="col s4 field">
+        <%= b.check_box :transportation, id: :transportation %>
+        <%= b.label "交通費がもらえる", for: :transportation, id: :transportation %>
+      </div>
+
+      <div class="col s4 field">
+        <%= b.check_box :accommodation, id: :accommodation %>
+        <%= b.label "宿泊場所がある", for: :accommodation, id: :accommodation %>
+      </div>
+
+      <div class="col s4 field">
+        <%= b.check_box :lunch, id: :lunch %>
+        <%= b.label "ランチを食べさせてくれる", for: :lunch, id: :lunch %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit class: "btn" %>
+  </div>
+<% end %>
+
+<%= render "shared/formjs", val: @review.tags.pluck(:name) %>

@@ -1,0 +1,44 @@
+<div class="container">
+  <table>
+    <tbody>
+    <tr>
+      <td><%= Review.human_attribute_name('content') %>: </td>
+      <td><%= @review.content %></td>
+    </tr>
+    <tr>
+      <td><%= Review.human_attribute_name('url') %>: </td>
+      <td><%= link_to @review.url, @review.url %></td>
+    </tr>
+    <tr>
+      <td><%= Review.human_attribute_name('company') %>: </td>
+      <td><%= @review.company.name %></td>
+    </tr>
+    <tr>
+      <td><%= Review.human_attribute_name('rate') %>: </td>
+      <td><%= @review.rate %></td>
+    </tr>
+    <tr>
+      <td><%= Review.human_attribute_name('tag_list') %>: </td>
+      <td><%= @review.tag_list %></td>
+    </tr>
+    <tr>
+      <td><%= Benefit.human_attribute_name('transportation') %>: </td>
+      <td><%= @review.benefit&.transportation %></td>
+    </tr>
+    <tr>
+      <td><%= Benefit.human_attribute_name('accommodation') %>: </td>
+      <td><%= @review.benefit&.accommodation %></td>
+    </tr>
+    <tr>
+      <td><%= Benefit.human_attribute_name('wage') %>: </td>
+      <td><%= @review.benefit&.wage %></td>
+    </tr>
+    <tr>
+      <td><%= Benefit.human_attribute_name('lunch') %>: </td>
+      <td><%= @review.benefit&.lunch %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <%= link_to '編集', edit_admin_review_path(@review) %>
+</div>

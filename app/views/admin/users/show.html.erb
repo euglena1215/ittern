@@ -1,0 +1,16 @@
+<p>
+  <strong><%= User.human_attribute_name('name') %>:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name('email') %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name('is_admin') %>:</strong>
+  <%= @user.is_admin %>
+</p>
+
+<%= link_to '編集', edit_admin_user_path(@user) %>

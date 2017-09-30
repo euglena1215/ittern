@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[ADMIN] Ittern</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="<%= root_path %>" class="brand-logo">[ADMIN] Ittern</a>
+          <a href="#!" class="button-collapse" data-activates="mobile-nav">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to "体験談", reviews_path %></li>
+            <li><%= link_to "企業一覧", companies_path %></li>
+            <% if user_signed_in? %>
+            <li>
+              <a class="dropdown-button" href="#" data-activates="signedin_menu">
+                <%= current_user.name %>
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+              <ul id="signedin_menu" class="dropdown-content">
+                <li><%= link_to "プロフィール変更", edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+            <% else %>
+            <li>
+              <a class="dropdown-button" href="#" data-activates="not_signedin_menu">
+                未ログイン
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+              <ul id="not_signedin_menu" class="dropdown-content">
+                <li><%= link_to "新規登録", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+              </ul>
+            </li>
+            <% end %>
+          </ul>
+          <ul class="side-nav" id="mobile-nav">
+            <li><%= link_to "体験談", reviews_path %></li>
+            <li><%= link_to "企業一覧", companies_path %></li>
+            <% if user_signed_in? %>
+            <li>
+              <a class="dropdown-button" href="#" data-activates="nav_signedin_menu">
+                <%= current_user.name %>
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+              <ul id="nav_signedin_menu" class="dropdown-content">
+                <li><%= link_to "プロフィール変更", edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+            <% else %>
+            <li>
+              <a class="dropdown-button" href="#" data-activates="nav_not_signedin_menu">
+                未ログイン
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+              <ul id="nav_not_signedin_menu" class="dropdown-content">
+                <li><%= link_to "新規登録", new_user_registration_path %></li>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+              </ul>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <% if notice %>
+      <div class="card blue darken-1">
+        <div class="card-content white-text">
+          <p><%= notice %></p>
+        </div>
+      </div>
+      <% end %>
+      <% if alert %>
+      <div class="card red darken-1">
+        <div class="card-content white-text">
+          <p><%= alert %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <script>
+    $(document).ready(function() {
+      $(".button-collapse").sideNav();
+      $('.dropdown-button').dropdown({belowOrigin:true});
+    });
+    </script>
+  </body>
+</html>

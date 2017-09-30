@@ -6,6 +6,7 @@ ja:
       user:
         name: ユーザ名
         email: メールアドレス
+        is_admin: 管理者権限
         password: パスワード
         password_confirmation: パスワード（確認）
         current_password: 現在のパスワード

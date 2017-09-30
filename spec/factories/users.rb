@@ -20,6 +20,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  is_admin               :boolean          default(FALSE), not null
 #
 # Indexes
 #
