@@ -1,7 +1,37 @@
 <%= form_with(model: company, local: true) do |form| %>
   <%= render "shared/errors", object: company %>
 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.url_field :url, id: :company_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :company_address %>
+  </div>
+
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>ロゴ</span>
+      <%= form.file_field :logo, id: :company_logo %>
+    </div>
+    <div class="file-path-wrapper">
+      <input type="text" class="file-path validate">
+    </div>
+  </div>
+
+  <div class="chips" id="tags"></div>
+  <%= form.hidden_field :tag_list, id: "tag_list" %>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn" %>
   </div>
 <% end %>
+
+<%= render "shared/formjs", val: @company.tags.pluck(:name) %>
